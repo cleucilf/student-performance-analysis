@@ -22,6 +22,7 @@ We use the mathematics dataset (`student-mat.csv`) to investigate study-time cat
 - pandas
 - NumPy
 - Matplotlib
+- Jupyter Notebook or Google Colab
 
 ## Methodology
 
