@@ -13,7 +13,7 @@ def load_data(file):
     df.drop(df[0 > df['G3']].index)
     df.drop(df[20 < df['G3']].index)
 
-    # convert mislabeled booleans into strings
+    # convert mislabeled strings into booleans
     df['schoolsup'] = df['schoolsup'].replace({'yes': True, 'no': False}).astype(bool)
     df['famsup'] = df['famsup'].replace({'yes': True, 'no': False}).astype(bool)
     df['paid'] = df['paid'].replace({'yes': True, 'no': False}).astype(bool)
