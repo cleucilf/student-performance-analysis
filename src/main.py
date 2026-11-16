@@ -1,3 +1,4 @@
+from data_preparation import load_data
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
