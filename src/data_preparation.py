@@ -5,13 +5,13 @@ def load_data(file):
 
     # check for duplicates and drop null values
     df[df.duplicated()]
-    df.dropna(how='any')
+    df = df.dropna(how='any')
 
     # drop any rows with invalid studytime or G3 values
-    df.drop(df[1 > df['studytime']].index)
-    df.drop(df[4 < df['studytime']].index)
-    df.drop(df[0 > df['G3']].index)
-    df.drop(df[20 < df['G3']].index)
+    df = df.drop(df[1 > df['studytime']].index)
+    df = df.drop(df[4 < df['studytime']].index)
+    df = df.drop(df[0 > df['G3']].index)
+    df = df.drop(df[20 < df['G3']].index)
 
     # convert mislabeled strings into booleans
     df['schoolsup'] = df['schoolsup'].replace({'yes': True, 'no': False}).astype(bool)
@@ -24,6 +24,3 @@ def load_data(file):
     df['romantic'] = df['romantic'].replace({'yes': True, 'no': False}).astype(bool)
 
     return df
-
-
-load_data("student-mat.csv")
