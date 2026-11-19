@@ -80,6 +80,6 @@ def stackedBarPlot(df, output_path):
     output_file.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(output_file, dpi=200)
     print(f"Plot saved to: {output_file}")
-    plt.show()
+    plt.close()
 
     return output_path
