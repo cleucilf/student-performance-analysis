@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 
@@ -9,7 +8,6 @@ def analyze_studytime(df):
     :return: A pandas DataFrame with one row per study-time category and columns for count, mean, median, and standard deviation.
     """
     # row for each student, first col studytime, second col G3
-    gb = df.groupby("studytime")["G3"]
     s = time_groups(df)
 
     s1 = s[0]
@@ -41,12 +39,11 @@ def time_groups(df):
     :param df: A pandas DataFrame containing the studytime and G3 columns.
     :return: tuple of 4 pandas series for each time group
     """
-    gb = df.groupby("studytime")["G3"]
 
-    s1 = pd.Series(gb.get_group(1))
-    s2 = pd.Series(gb.get_group(2))
-    s3 = pd.Series(gb.get_group(3))
-    s4 = pd.Series(gb.get_group(4))
+    s1 = df.loc[df["studytime"] == 1, "G3"]
+    s2 = df.loc[df["studytime"] == 2, "G3"]
+    s3 = df.loc[df["studytime"] == 3, "G3"]
+    s4 = df.loc[df["studytime"] == 4, "G3"]
 
     return s1, s2, s3, s4
 
